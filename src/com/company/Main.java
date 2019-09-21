@@ -6,7 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
         int n = 10;
+        System.out.print("Введите кол-во элементов в массиве: ");
         Scanner in = new Scanner(System.in);
+        n = in.nextInt();
         Set x = new Set(n);
 
 
