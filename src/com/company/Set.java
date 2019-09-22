@@ -2,55 +2,20 @@ package com.company;
 import java.util.Scanner;
 public class Set {
     private int n;
-    private int x[];
+    public int x[];
 
     Set(int n) {
         this.n = n;
         this.x = new int[this.n];
 
     }
-    void randInput(int min, int max) {
-        for (int i = 0; i < n; i ++){
-            x[i] = (int) (Math.random() * ++max + min);
-        }
-    }
-    void randInputInterval(int min, int max){
-        for (int i = 0; i < n; ++i){
-            x[i] = (int) (Math.random()*max + min);
-        }
-    }
 
-    void consolInput(){
-        System.out.println("Введите " + n + " чисел");
-        Scanner in = new Scanner(System.in);
-        for (int i = 0; i < n; ++ i)
-        {
-            x[i] = in.nextInt();
-        }
-
-        System.out.println("---------------------------------");
-    }
-    void consolOutput(){
-        System.out.print("Массив чисел:");
-        for (int i = 0; i < n; ++i){
-            System.out.print(" " + x[i]);
-        }
-        System.out.println();
-    }
-    int findIndexNumber(int a){
-        for (int i = 0; i < n; ++i){
-            if (x[i] == a){
-                return i;
-            }
-        }
-        return -1;
-    }
-    void swap(int n, int m){
+    void swap(int n, int m){ // Смена элементов в массиве
         int b = x[n];
         x[n] = x[m];
         x[m] = b;
     }
-    void sort(){
+    void sort(){ // Сортировка согласно правилам из варианта
         int first = x[0];
         int m = 0;
         for (int i = 1; i < n; i++)
@@ -70,7 +35,7 @@ public class Set {
                 }
             }
     }
-    boolean l_check(int num, int n){
+    boolean l_check(int num, int n){ // Проверка на степень числа
         while (num != 1 && num % n == 0) {
             num /= n;
         }
@@ -81,21 +46,15 @@ public class Set {
 
     }
 
-    int log(){
+    int log(int number){ // Подсчет элементов, которые являются степенью заданного числа
         int count = 0;
 
         for (int i = 0; i < n; ++i) {
-            int k =2;
             boolean flag = false;
-            while((Math.abs(x[i]) != k) & !flag){
-                flag = l_check(Math.abs(x[i]), k);
-                ++k;
-                if (flag){
-                    ++count;
-                    break;
-                }
+            flag = l_check(Math.abs(x[i]), number);
+            if (flag){
+                ++count;
             }
-
         }
         return count;
     }
