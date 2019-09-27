@@ -1,8 +1,8 @@
 package com.company;
 import java.util.Scanner;
 public class Set {
-    private int n;
-    public int x[];
+    private int n; // size
+    private int x[];
 
     Set(int n) {
         this.n = n;
@@ -10,12 +10,21 @@ public class Set {
 
     }
 
-    void swap(int n, int m){ // Смена элементов в массиве
+    public int[] get_arr(){ //Возвращает массив
+        return x;
+    }
+
+    public void set(int index, int item){ // Устанавливает значение массива для элемента с индексом index
+        x[index] = item;
+    }
+
+    private void swap(int n, int m){ // Смена элементов в массиве
         int b = x[n];
         x[n] = x[m];
         x[m] = b;
     }
-    void sort(){ // Сортировка согласно правилам из варианта
+
+    public void sort(){ // Сортировка согласно правилам из варианта
         int first = x[0];
         int m = 0;
         for (int i = 1; i < n; i++)
@@ -35,18 +44,16 @@ public class Set {
                 }
             }
     }
-    boolean l_check(int num, int n){ // Проверка на степень числа
+
+    private boolean l_check(int num, int n){ // Проверка на степень числа
         while (num != 1 && num % n == 0) {
             num /= n;
         }
-        if (num == 1)
-            return true;
-        else
-            return false;
 
+        return (num == 1);
     }
 
-    int log(int number){ // Подсчет элементов, которые являются степенью заданного числа
+    public int log(int number){ // Подсчет элементов, которые являются степенью заданного числа
         int count = 0;
 
         for (int i = 0; i < n; ++i) {

@@ -35,7 +35,7 @@ public class Main {
                     consoleOutput(x, n);
                     break;
                 case 4: // Вывод с клавы справа-налево
-                    consoleOutpur_right(x, n);
+                    consoleOutput_right(x, n);
                     break;
                 case 5: // Сортировка по заданию
                     x.sort();
@@ -62,7 +62,7 @@ public class Main {
      */
     public static void randInput(Set x, int min, int max, int n) { // Рандомный ввод
         for (int i = 0; i < n; i ++){
-            x.x[i] = (int) (Math.random() * ++max + min);
+            x.set(i, (int) (Math.random() * ++max + min)); // set для инкапсуляции
         }
     }
 
@@ -71,7 +71,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
         for (int i = 0; i < n; ++ i)
         {
-            x.x[i] = in.nextInt();
+            x.set(i, in.nextInt());
         }
 
         System.out.println("---------------------------------");
@@ -80,17 +80,17 @@ public class Main {
         System.out.print("Массив чисел:");
 
 
-        for (int item : x.x){ // Без индекса
+        for (int item : x.get_arr()){ // Без индекса
             System.out.print(" " + item);
         }
 
         System.out.println();
     }
 
-    public static void consoleOutpur_right(Set x, int n) {
+    public static void consoleOutput_right(Set x, int n) { // Вывод справа-налево
         System.out.print("Массив чисел справа-налево:");
         for (int i = n-1; i >= 0; --i) {
-            System.out.print(" " + x.x[i]);
+            System.out.print(" " + x.get_arr()[i]);
         }
 
         System.out.println();
