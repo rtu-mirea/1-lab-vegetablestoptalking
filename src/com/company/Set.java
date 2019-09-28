@@ -45,7 +45,7 @@ public class Set {
             }
     }
 
-    private boolean l_check(int num, int n){ // Проверка на степень числа
+    private boolean pow_check(int num, int n){ // Проверка на степень числа
         while (num != 1 && num % n == 0) {
             num /= n;
         }
@@ -58,7 +58,7 @@ public class Set {
 
         for (int i = 0; i < n; ++i) {
             boolean flag = false;
-            flag = l_check(Math.abs(x[i]), number);
+            flag = pow_check(Math.abs(x[i]), number);
             if (flag){
                 ++count;
             }
