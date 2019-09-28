@@ -9,6 +9,11 @@ public class Set {
         this.x = new int[this.n];
 
     }
+    
+    Set(int n, int x[]) {
+        this.n = n;
+        this.x = x;
+    }
 
     public int[] get_arr(){ //Возвращает массив
         return x;
